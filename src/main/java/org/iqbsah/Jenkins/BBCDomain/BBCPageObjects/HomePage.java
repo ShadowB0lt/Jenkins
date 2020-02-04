@@ -19,6 +19,7 @@ public class HomePage {
     public HomePage goToHomePage()
     {
         webDriver.navigate().to(homePageURL);
+
         return this;
     }
 
@@ -26,6 +27,11 @@ public class HomePage {
     {
         webDriver.findElement(signInLink).click();
         return this;
+    }
+
+    public WebDriver getWebDriver()
+    {
+        return webDriver;
     }
 
 

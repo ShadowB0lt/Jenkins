@@ -12,8 +12,7 @@ public class App
 {
     public static void main( String[] args )
     {
-        BBCDomain bbcDomain = new BBCDomain(new SeleniumConfig("chrome").getDriver());
-        bbcDomain.HomePage().goToHomePage().clickSignInLink();
+
 
 
     }

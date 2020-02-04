@@ -2,6 +2,9 @@ package org.iqbsah.Jenkins;
 
 import static org.junit.Assert.assertTrue;
 
+import org.iqbsah.Jenkins.BBCDomain.BBCDomain;
+import org.iqbsah.Jenkins.SeleniumConfig.SeleniumConfig;
+import org.junit.Assert;
 import org.junit.Test;
 
 /**
@@ -9,6 +12,7 @@ import org.junit.Test;
  */
 public class AppTest 
 {
+    BBCDomain bbcDomain = new BBCDomain(new SeleniumConfig("chrome").getDriver());
     /**
      * Rigorous Test :-)
      */
@@ -17,4 +21,13 @@ public class AppTest
     {
         assertTrue( true );
     }
+
+    @Test
+    public void goToHomePage()
+    {
+        bbcDomain.HomePage().goToHomePage();
+        Assert.assertEquals("https://www.bbc.co.uk/",bbcDomain.HomePage().getWebDriver().getCurrentUrl());
+        bbcDomain.quitDriver();
+    }
+
 }
