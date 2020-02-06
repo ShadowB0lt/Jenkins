@@ -12,7 +12,7 @@ import org.junit.Test;
  */
 public class AppTest 
 {
-    BBCDomain bbcDomain = new BBCDomain(new SeleniumConfig("chrome").getDriver());
+    private BBCDomain bbcDomain = new BBCDomain(new SeleniumConfig("chrome").getDriver());
     /**
      * Rigorous Test :-)
      */
@@ -27,6 +27,13 @@ public class AppTest
     {
         bbcDomain.HomePage().goToHomePage();
         Assert.assertEquals("https://www.bbc.co.uk/",bbcDomain.HomePage().getWebDriver().getCurrentUrl());
+        bbcDomain.quitDriver();
+    }
+
+    @Test
+    public void goToLoginPage()
+    {
+        bbcDomain.HomePage().goToHomePage().clickSignInLink();
         bbcDomain.quitDriver();
     }
 
